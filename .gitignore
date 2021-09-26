@@ -4,6 +4,7 @@ kk
 *.log
 *.pickle
 *.csv
+*.h5
 maps_v0
 maps_kk
 sources
