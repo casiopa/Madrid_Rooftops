@@ -1,0 +1,11 @@
+__pycache__
+.ipynb_checkpoints
+kk
+*.log
+*.pickle
+*.csv
+maps_v0
+maps_kk
+sources
+logs
+data
