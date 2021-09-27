@@ -8,7 +8,7 @@ Ana Blanco Delgado | Septiembre de 2021
 
 ---
 
-![](notebooks/images/Intro.png "soto-del-real 2021-09-21 163121.png")
+![](notebooks/images/Intro.png "somosaguas 2021-09-13 195919.png")
 
 Este proyecto lo he realizado para el Bootcamp de Data Science en The Bridge en septiembre de 2021, como trabajo individual de Machine Learning. Mi background relacionado con la imagen y el vídeo me ha arrastrado a tareas de Computer Vision, y la idea de este proyecto me aterrizó tras escuchar un muy interesante podcast de Data Stand-Up! con el entrevistado David Rey (Chief Data Officer en Idealista). En la entrevista se menciona el proyecto de Idealista Energy que ofrece información sobre los tejados y su posible aprovechamiento para la instalación de paneles solares (área del tejado, número de paneles solares a instalar, coste aproximado de su instalación, cálculo de ahorro posterior en el consumo energético...).
 
