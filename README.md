@@ -15,7 +15,7 @@ Este proyecto lo he realizado para el Bootcamp de Data Science en The Bridge en 
 El objetivo del proyecto es acercarme a este servicio de Idealista Energy y detectar tejados residenciales, piscinas y áreas deportivas, en imágenes aéreas de la Comunidad de Madrid. Para ello he utilizado el framework Mask R-CNN (Mask Region Convolutional Neural Network) para la detección, clasificación y segmentación de imágenes. El framework elegido nos permite hacer segmentación de la imagen para seleccionar el área del tejado por su forma lo que nos podría permitir calcular el área de la máscara predicha. Además, esta implementación de Mask R-CNN parte de una red ResNet101 preentrenada con el dataset de imágenes MS COCO.
 
 ### Dataset
-He descargado 91 imágenes de Google Maps con un zoom fijo de 19, y las he etiquetado con el software [VGG Imagen Annotator (VIA)](https://www.robots.ox.ac.uk/~vgg/software/via/) que permite seleccionar instancias con polígonos y asignarles una clase. El número final de polígonos etiquetados para las 91 imágenes fue de 2.033.
+He descargado 102 imágenes de Google Maps con un zoom fijo de 19, y las he etiquetado con el software [VGG Imagen Annotator (VIA)](https://www.robots.ox.ac.uk/~vgg/software/via/) que permite seleccionar instancias con polígonos y asignarles una clase. El número final de polígonos etiquetados para las 102 imágenes fue de 2.291.
 
 Para ver información más detallada sobre el dataset revisar el notebook: [/notebooks/inspect_data.ipynb](/notebooks/inspect_data.ipynb)
 
@@ -24,16 +24,16 @@ Una vez heredadas las clases necesarias para cargar el dataset y configurar el m
 
 Evaluación modelo epoch 60:
 - **`Train_set mAP@50: 0.720`**
-- **`Val_set   mAP@50: 0.527`**
+- **`Test_set  mAP@50: 0.624`**
 
-Estos valores sugieren seguir entrenando el modelo, posiblemente con un dataset mayor. 
+Estos valores sugieren seguir entrenando el modelo, posiblemente con un dataset mayor, pero con tan solo 69 imágenes y 60 epochs se ha conseguido un mAP@IoU=50 de 0.624, así que el proyecto se presenta prometedor.
 
 Para ver información más detallada sobre el modelo seleccionado revisar el notebook: [/notebooks/inspect_model.ipynb](/notebooks/inspect_model.ipynb)
 
 Para comprender mejor los resultados revisé las predicciones del modelo con el dataset de validación porque tenía la intuición de que el modelo tiene un buen desempeño para la segmentación de residencias aisladas pero no de adosados o edificios. A continuación muestro ambos casos:
 
 ### Ejemplo de predicción y evaluación en imagen con edificios 
-(imagen del dataset de validación: pozuelo 2021-09-13 200628.png)
+(imagen: pozuelo 2021-09-13 200628.png)
 
  Predicciones | AUC-PR - AR@IoU=50
  :------------|---------------:
@@ -41,12 +41,12 @@ Para comprender mejor los resultados revisé las predicciones del modelo con el 
 
 
 ### Ejemplo de predicción y evaluación en imagen con casas o chalets 
-(imagen del dataset de validación: pozuelo 2021-09-13 200628.png)
+(imagen: pozuelo 2021-09-13 200628.png)
 
  Predicciones | AUC-PR - AR@IoU=50
  :------------|---------------:
  ![](/notebooks/images/Image_predicted_01.png) | ![](/notebooks/images/AUC-PR_01.png)
- 
+
 Así podemos concluir que el modelo consigue unos buenos resultados con imágenes:
 - En zonas de viviendas residenciales aisladas (casas y chalets)
 - Y un número de instancias no muy superior a 20
@@ -64,8 +64,3 @@ Así podemos concluir que el modelo consigue unos buenos resultados con imágene
 - Object Detection Metrics With Worked Example: https://towardsdatascience.com/on-object-detection-metrics-with-worked-example-216f173ed31e
 - Taming the Hyper-Parameters of Mask RCNN: https://medium.com/analytics-vidhya/taming-the-hyper-parameters-of-mask-rcnn-3742cb3f0e1b
 - Project Zeus, or How to Detect Rooftops using Neural Networks. A Begginer’s Guide: https://alexwhelan.medium.com/project-zeus-or-how-to-detect-rooftops-using-neural-networks-a-beginners-guide-a8efed8da28a
-
-
-
-
-
